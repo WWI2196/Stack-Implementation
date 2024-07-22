@@ -2,7 +2,7 @@
 #include <sstream>
 using namespace std;
 
-class Node{
+class Node{ // Node class for the Stack
 public:
     int data;
     Node* next;
@@ -18,12 +18,12 @@ private:
 	Node* top;
 	int size;
 public:
-	Stack() {
+	Stack() { // Constructor to initialize the stack
 		top = nullptr;
 		size = 0;
 	}
 
-	void push(int data) {
+	void push(int data) { // Function to add elements to the stack
 		Node* newNode = new Node(data);
 
 		if (top == nullptr) {
@@ -36,7 +36,7 @@ public:
 		size++;
 	};
 
-	void pop() {
+	void pop() { // Function to remove elements from the stack
 		if (top == nullptr) {
 			cout << "Stack is empty" << endl;
 		}
@@ -48,7 +48,7 @@ public:
 		}
 	};
 
-	void print() {
+	void print() { // Function to display the elements of the stack
 		Node* temp = top;
 
 		cout << "Stack: ";
@@ -59,7 +59,7 @@ public:
 		cout << endl;
 	}
 
-	void reverse() {
+	void reverse() { // Function to reverse the elements of the stack
 
 		if (top == nullptr) {
 			cout << "Stack is empty." << endl;
@@ -71,15 +71,15 @@ public:
 		Node* next = nullptr;
 
 		while (temp != nullptr) {
-			next = temp->next;  // Save next
-			temp->next = prev;  // Reverse current node's pointer
-			prev = temp;        // Move pointers one position ahead.
+			next = temp->next;  
+			temp->next = prev; 
+			prev = temp;       
 			temp = next;
 		}
 		top = prev;
 	}
 
-	void count() const {
+	void count() const { // Function to display the number of elements in the stack
 		cout <<"Number of elements in the stack is: " << size << endl;
 	}
 
